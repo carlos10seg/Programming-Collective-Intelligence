@@ -1,5 +1,6 @@
 #from recommendations import critics, sim_distance, sim_pearson
 import recommendations as recs
+import pydelicious
 
 # c1 = critics['Lisa Rose']['Lady in the Water']
 # print(c1)
@@ -24,4 +25,12 @@ import recommendations as recs
 # recommendations2 = recs.getRecommendations(recs.critics, 'Toby', recs.sim_distance)
 # print(recommendations2)
 
-print(recs.transform_critics())
+# print(recs.transform_critics())
+
+# movies = recs.transformPrefs(recs.critics)
+# matches = recs.topMatches(movies, 'Superman Returns')
+# print(matches)
+# recommendations = recs.getRecommendations(movies, 'Just My Luck')
+# print(recommendations)
+
+print(pydelicious.get_popular(tag='programming'))

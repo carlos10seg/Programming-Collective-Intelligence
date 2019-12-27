@@ -27,10 +27,26 @@ import pydelicious
 
 # print(recs.transform_critics())
 
+
 # movies = recs.transformPrefs(recs.critics)
 # matches = recs.topMatches(movies, 'Superman Returns')
 # print(matches)
 # recommendations = recs.getRecommendations(movies, 'Just My Luck')
 # print(recommendations)
 
-print(pydelicious.get_popular(tag='programming'))
+
+# itemsim = recs.calculateSimilarItems(recs.critics)
+# print(itemsim)
+# recItems = recs.getRecommendedItems(recs.critics, itemsim, 'Toby')
+# print(recItems)
+
+
+prefs = recs.loadMovieLens()
+#print(prefs['87'])
+# user-based recommendations:
+user_recs =  recs.getRecommendations(prefs, '87')[0:30]
+print(user_recs)
+# item-based recommendations:
+item_sim = recs.calculateSimilarItems(prefs, n=50)
+item_recs = recs.getRecommendedItems(prefs, item_sim, '87')[0:30]
+print(item_recs)
